@@ -1,0 +1,14 @@
+<!doctype html>
+<title>Dashboard</title>
+<h2>Your Dreams</h2>
+<ul>
+  {% for title, content in dreams %}
+    <li><strong>{{ title }}</strong>: {{ content }}</li>
+  {% endfor %}
+</ul>
+<form action="{{ url_for('add_dream') }}" method="post">
+  <input name="title" placeholder="Dream Title" required>
+  <textarea name="content" placeholder="Describe your dream" required></textarea>
+  <input type="submit" value="Add Dream">
+</form>
+<a href="{{ url_for('logout') }}">Logout</a>
